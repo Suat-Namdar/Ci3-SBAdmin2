@@ -1,59 +1,60 @@
-// Global styling for this template
-// Body padding for the fixed navbar and sidebar
+// Global component styles
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-    background: $gray-dark;
+  height: 100%;
 }
 
-body.fixed-nav {
-    padding-top: 54px;
-    @media (min-width: 992px) {
-        padding-top: 56px;
-    }
+a {
+  &:focus {
+    outline: none;
+  }
 }
 
-.content-wrapper {
-    background: white;
-    @media (min-width: 992px) {
-        margin-left: 250px;
+// Main page wrapper
+#wrapper {
+  display: flex;
+  #content-wrapper {
+    background-color: $gray-100;
+    width: 100%;
+    overflow-x: hidden;
+    #content {
+      flex: 1 0 auto;
     }
+  }
+}
+
+// Set container padding to match gutter width instead of default 15px
+.container,
+.container-fluid {
+  padding-left: $grid-gutter-width;
+  padding-right: $grid-gutter-width;
 }
 
 // Scroll to top button
 .scroll-to-top {
-    line-height: 45px;
-    position: fixed;
-    right: 15px;
-    bottom: 15px;
-    display: none;
-    width: 50px;
-    height: 50px;
-    text-align: center;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  text-align: center;
+  color: $white;
+  background: fade-out($gray-800, .5);
+  line-height: 46px;
+  &:focus,
+  &:hover {
     color: white;
-    background: fade-out($gray-dark, .5);
-    &:hover,
-    &:focus {
-        color: white;
-    }
-    &:hover {
-        background: $gray-dark;
-    }
-}
-
-// Additional Text Helper Class
-.smaller {
-    font-size: .7rem;
-}
-
-// Helper class for the overflow property
-.o-hidden {
-    overflow: hidden !important;
-}
-
-// Helper classes for z-index
-.z-0 {
-    z-index: 0;
-}
-
-.z-1 {
-    z-index: 1;
+  }
+  &:hover {
+    background: $gray-800;
+  }
+  i {
+    font-weight: 800;
+  }
 }

@@ -98,7 +98,20 @@ switch (ENVIRONMENT)
  * Set the path if it is not in the same directory as this file.
  */
 	$system_path = 'system';
-
+	
+	if (($_temp = realpath($system_path)) !== FALSE) {
+		$system_path = $_temp.DIRECTORY_SEPARATOR;
+	} else {
+		// Ensure there's a trailing slash
+		$system_path = rtrim($system_path, '/\\').DIRECTORY_SEPARATOR;
+	}
+	
+	// Is the system path correct?
+	if (!is_dir($system_path)) {
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+		exit(3); // EXIT_CONFIG
+	}
 /*
  *---------------------------------------------------------------
  * APPLICATION DIRECTORY NAME
@@ -224,7 +237,7 @@ switch (ENVIRONMENT)
  * -------------------------------------------------------------------
  */
 	// The name of THIS file
-	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+	define('SELF', basename(__FILE__));
 
 	// Path to the system directory
 	define('BASEPATH', $system_path);
@@ -312,4 +325,5 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
+
 require_once BASEPATH.'core/CodeIgniter.php';

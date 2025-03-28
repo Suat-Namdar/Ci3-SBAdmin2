@@ -46,7 +46,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/general/errors.html
  */
-class CI_Log {
+
+#[AllowDynamicProperties]
+
+class CI_Log extends stdClass {
 
 	/**
 	 * Path to save log files

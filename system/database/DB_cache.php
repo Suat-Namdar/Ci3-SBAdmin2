@@ -44,7 +44,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
-class CI_DB_Cache {
+
+ #[AllowDynamicProperties]
+
+class CI_DB_Cache extends stdClass {
 
 	/**
 	 * CI Singleton

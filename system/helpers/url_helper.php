@@ -160,7 +160,7 @@ if ( ! function_exists('anchor'))
 		$title = (string) $title;
 
 		$site_url = is_array($uri)
-			? site_url($uri)
+			? site_url(is_array($uri) ? implode('/', $uri) : $uri)
 			: (preg_match('#^(\w+:)?//#i', $uri) ? $uri : site_url($uri));
 
 		if ($title === '')

@@ -48,7 +48,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/libraries/input.html
  */
-class CI_Input {
+
+ #[AllowDynamicProperties]
+
+class CI_Input extends stdClass {
 
 	/**
 	 * IP address of the current user

@@ -48,7 +48,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/general/hooks.html
  */
-class CI_Hooks {
+
+ #[AllowDynamicProperties]
+
+class CI_Hooks extends stdClass {
 
 	/**
 	 * Determines whether hooks are enabled

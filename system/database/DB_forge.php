@@ -44,7 +44,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
-abstract class CI_DB_forge {
+
+ #[AllowDynamicProperties]
+
+abstract class CI_DB_forge extends stdClass {
 
 	/**
 	 * Database object
